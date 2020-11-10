@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>form dang nhap</title>
-    <style type="text/css">
+    <style>
         .login {
             height: 230px;
             width: 230px;
@@ -26,7 +26,8 @@
     </style>
 </head>
 <body>
-<form method="post" action="https://james.codegym.vn/course/view.php?id=68">
+
+<form method="post" style="position: absolute; left: 40%; top: 100px">
     <div class="login">
         <h1>Accout Login</h1>
         <input type="text" name="email" placeholder="E-mail">
@@ -35,13 +36,12 @@
     </div>
 </form>
 <?php
-$this->email = $email;
-$this->$password = $password;
-if ($_SERVER["REQUEST_METHOD"] = "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
     if ($email === "admin@gmail.com" && $password === "admin") {
-        echo "Đăng nhập thành công";
+        header("Location: http://youtube.com");
+
     } else {
         echo "Đăng nhập thất bại";
     }
