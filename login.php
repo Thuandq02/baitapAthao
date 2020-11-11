@@ -19,8 +19,9 @@
             padding: 10px;
             margin: 10px
         }
-       form{
-           width: 328px;
+
+        form {
+            width: 328px;
             background: chartreuse;
         }
     </style>
@@ -36,17 +37,31 @@
     </div>
 </form>
 <?php
+$array = [
+    ["admin@gmail.com", "admin"],
+    ["thuan@fmail.com", "admin"]
+];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-    if ($email === "admin@gmail.com" && $password === "admin") {
-        header("Location: http://youtube.com");
+    if (!empty($_POST["email"] && !empty($_POST['password']))) {
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+        $signin = false;
+        foreach ($array as $value) {
+            if ($email === $array[0][0] && $password === $array[0][1]) {
+                header("Location: https://github.com/dqthuan/baitapAthao");
+                $signin = true;
+                break;
+            }
+        }
+        if ($signin) {
+            echo "abc";
 
-    } else {
-        echo "Đăng nhập thất bại";
+        } else {
+            echo "Đăng nhập thất bại";
+        }
+
     }
 }
-
 
 ?>
 </body>
